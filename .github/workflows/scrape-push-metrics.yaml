@@ -1,4 +1,4 @@
-name: Scrape Metrics
+name: Scrape and push metrics
 
 on:
   schedule:
