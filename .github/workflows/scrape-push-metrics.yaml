@@ -19,6 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # TODO: Refactor environment variables injection with dotenv template and 1Password CLI
       - name: Set up environment
         env:
           PROMETHEUS_REMOTE_WRITE_URL: ${{ secrets.PROMETHEUS_REMOTE_WRITE_URL }}
@@ -44,6 +45,12 @@ jobs:
            | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
 
       - name: Teardown environment
+        env:
+          PROMETHEUS_REMOTE_WRITE_URL: ${{ secrets.PROMETHEUS_REMOTE_WRITE_URL }}
+          PROMETHEUS_REMOTE_WRITE_USERNAME: ${{ secrets.PROMETHEUS_REMOTE_WRITE_USERNAME }}
+          PROMETHEUS_REMOTE_WRITE_PASSWORD: ${{ secrets.PROMETHEUS_REMOTE_WRITE_PASSWORD }}
+          # Using `GH_` prefix due to GitHub Actions restrictions
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           docker compose stop
           docker compose logs
