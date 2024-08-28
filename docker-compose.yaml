@@ -1,0 +1,20 @@
+services:
+  alloy:
+    image: grafana/alloy:v1.3.1
+    ports:
+      - ${ALLOY_HOST:-127.0.0.1}:${ALLOY_PORT:-8080}:8080
+    volumes:
+      - ./config.alloy:/etc/alloy/config.alloy
+    environment:
+      PROMETHEUS_REMOTE_WRITE_URL: ${PROMETHEUS_REMOTE_WRITE_URL:?}
+      PROMETHEUS_REMOTE_WRITE_USERNAME: ${PROMETHEUS_REMOTE_WRITE_USERNAME:?}
+      PROMETHEUS_REMOTE_WRITE_PASSWORD: ${PROMETHEUS_REMOTE_WRITE_PASSWORD:?}
+    command: run /etc/alloy/config.alloy
+
+  github-exporter:
+    image: githubexporter/github-exporter:1.2.0
+    ports:
+      - ${GITHUB_EXPORTER_HOST:-127.0.0.1}:${GITHUB_EXPORTER_PORT:-9171}:9171
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN:?}
+      USERS: lasuillard
