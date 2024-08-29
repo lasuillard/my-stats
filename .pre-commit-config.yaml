@@ -1,0 +1,18 @@
+default_stages: [commit]
+default_install_hook_types: [pre-commit, commit-msg]
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+
+  - repo: local
+    hooks:
+      - id: alloy-format
+        language: system
+        files: \.alloy$
+        name: Format `.alloy` files
+        entry: alloy fmt
+        args: [--write]

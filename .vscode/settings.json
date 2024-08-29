@@ -1,0 +1,21 @@
+{
+  "conventionalCommits.scopes": [],
+  "cSpell.enableFiletypes": [
+    "*"
+  ],
+  "cSpell.words": [
+    "devcontainer",
+    "devcontainers",
+    "lasuillard",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "json.format.enable": true,
+  "yaml.format.enable": true
+}

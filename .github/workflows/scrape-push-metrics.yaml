@@ -40,9 +40,9 @@ jobs:
       - name: Scrape metrics from GitHub Exporter
         run: |
           curl -s http://localhost:9171/metrics \
-           | grep 'github_' \
-           | tee metrics/github-exporter.txt \
-           | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
+            | grep 'github_' \
+            | tee metrics/github-exporter.txt \
+            | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
 
       - name: Teardown environment
         env:
