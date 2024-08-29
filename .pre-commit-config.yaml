@@ -8,11 +8,7 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
 
-  - repo: local
+  - repo: https://github.com/lasuillard/pre-commit-hooks
+    rev: v0.3.0
     hooks:
       - id: alloy-format
-        language: system
-        files: \.alloy$
-        name: Format `.alloy` files
-        entry: alloy fmt
-        args: [--write]
