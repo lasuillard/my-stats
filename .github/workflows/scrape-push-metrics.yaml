@@ -27,6 +27,7 @@ jobs:
           PROMETHEUS_REMOTE_WRITE_PASSWORD: ${{ secrets.PROMETHEUS_REMOTE_WRITE_PASSWORD }}
           # Using `GH_` prefix due to GitHub Actions restrictions
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: |
           mkdir ./metrics
           docker compose up --quiet-pull --detach --wait
@@ -44,6 +45,12 @@ jobs:
             | tee metrics/github-exporter.txt \
             | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
 
+      - name: Scrape metrics from 1Password Exporter
+        run: |
+          curl -s http://localhost:9999/metrics \
+            | tee metrics/onepassword-exporter.txt \
+            | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
+
       - name: Teardown environment
         env:
           PROMETHEUS_REMOTE_WRITE_URL: ${{ secrets.PROMETHEUS_REMOTE_WRITE_URL }}
@@ -51,6 +58,7 @@ jobs:
           PROMETHEUS_REMOTE_WRITE_PASSWORD: ${{ secrets.PROMETHEUS_REMOTE_WRITE_PASSWORD }}
           # Using `GH_` prefix due to GitHub Actions restrictions
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: |
           docker compose stop
           docker compose logs
