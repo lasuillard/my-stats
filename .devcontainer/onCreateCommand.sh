@@ -13,11 +13,3 @@ sudo curl -L -o /usr/local/bin/prom-write https://github.com/theduke/prom-write/
 sudo apt-get update && sudo apt-get install -y \
   alloy \
   bash-completion
-
-echo "
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-source <(alloy completion bash)
-" >>~/.bashrc
