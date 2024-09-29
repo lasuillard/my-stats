@@ -11,5 +11,4 @@ sudo curl -L -o /usr/local/bin/prom-write https://github.com/theduke/prom-write/
   && sudo chmod +x /usr/local/bin/prom-write
 
 sudo apt-get update && sudo apt-get install -y \
-  alloy \
-  bash-completion
+  alloy
