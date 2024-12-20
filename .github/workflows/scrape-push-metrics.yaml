@@ -22,7 +22,7 @@ jobs:
       # TODO: Refactor environment variables injection with dotenv template and 1Password CLI
       - name: Set up environment
         env:
-          PROMETHEUS_REMOTE_WRITE_URL: ${{ secrets.PROMETHEUS_REMOTE_WRITE_URL }}
+          PROMETHEUS_REMOTE_WRITE_URL: ${{ vars.PROMETHEUS_REMOTE_WRITE_URL }}
           PROMETHEUS_REMOTE_WRITE_USERNAME: ${{ secrets.PROMETHEUS_REMOTE_WRITE_USERNAME }}
           PROMETHEUS_REMOTE_WRITE_PASSWORD: ${{ secrets.PROMETHEUS_REMOTE_WRITE_PASSWORD }}
           # Using `GH_` prefix due to GitHub Actions restrictions
