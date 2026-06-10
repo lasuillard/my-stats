@@ -1,5 +1,7 @@
 # my-stats
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Experiment collecting small amount of personal metrics via GitHub Actions.
 
 This repository is intended to test out [Grafana Alloy](https://grafana.com/docs/alloy/latest/) and [theduke/prom-write](https://github.com/theduke/prom-write) to scrape and send small amount of metrics on-demand to a remote metrics store on GitHub Actions.
@@ -40,3 +42,7 @@ If you prefer [Dev Container](https://containers.dev/), we have configuration ([
 1. Copy `.env.example` to `.env` and update it with your own values.
 2. Run `docker compose up --detach` to start the environment.
 3. Run `nix develop` to get the tools. Do as you please.
+
+## 📜 License
+
+This project is licensed under the terms of the MIT license.
