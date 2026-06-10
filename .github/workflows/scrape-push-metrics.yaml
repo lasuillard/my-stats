@@ -14,12 +14,13 @@ concurrency:
 
 jobs:
   scrape-push:
+    name: Scrape and push
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # TODO: Refactor environment variables injection with dotenv template and 1Password CLI
       - name: Set up environment
         env:
           PROMETHEUS_REMOTE_WRITE_URL: ${{ vars.PROMETHEUS_REMOTE_WRITE_URL }}
@@ -34,22 +35,22 @@ jobs:
 
       - name: Download prom-write
         run: |
-          curl -L -o /usr/local/bin/prom-write https://github.com/theduke/prom-write/releases/download/v0.2.1/prom-write-linux-x86 \
+          curl --location --output /usr/local/bin/prom-write https://github.com/theduke/prom-write/releases/download/v0.2.1/prom-write-linux-x86 \
             && chmod +x /usr/local/bin/prom-write
 
       # NOTE: Some metrics filtered out including summary metrics, which is not supported by prom-write
       - name: Scrape metrics from GitHub Exporter
         run: |
-          curl -s http://localhost:9171/metrics \
+          curl --silent http://localhost:9171/metrics \
             | grep 'github_' \
             | tee metrics/github-exporter.txt \
-            | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
+            | prom-write --url http://localhost:8080/api/v1/metrics/write --file -
 
       - name: Scrape metrics from 1Password Exporter
         run: |
-          curl -s http://localhost:9999/metrics \
+          curl --silent http://localhost:9999/metrics \
             | tee metrics/onepassword-exporter.txt \
-            | prom-write --url http://localhost:8080/api/v1/metrics/write -f -
+            | prom-write --url http://localhost:8080/api/v1/metrics/write --file -
 
       - name: Teardown environment
         env:

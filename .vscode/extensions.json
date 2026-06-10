@@ -1,12 +1,6 @@
 {
   "recommendations": [
     "EditorConfig.EditorConfig",
-    "gruntfuggly.todo-tree",
-    "ldez.ignore-files",
-    "redhat.vscode-yaml",
-    "streetsidesoftware.code-spell-checker",
-    "tamasfe.even-better-toml",
-    "vivaxy.vscode-conventional-commits",
     "Grafana.grafana-alloy"
   ]
 }
