@@ -29,7 +29,7 @@ You need to have the following tools installed on your system:
 
 ### ❄️ Tools managed via Nix Flakes
 
-This repository uses [Nix Flakes](https://nix.dev/concepts/flakes.html) to manage tools. Following tools will be automatically installed:
+This repository uses [Nix Flakes](https://nix.dev/concepts/flakes.html) to manage tools. Following tools will be automatically installed (you need `nix` installed, of course):
 
 - `pre-commit`
 - [Grafana Alloy](https://grafana.com/docs/alloy/latest/) (`alloy`)

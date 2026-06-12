@@ -18,7 +18,6 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            git
             pre-commit
             grafana-alloy
             (pkgs.callPackage ./nixpkgs/prom-write.nix { })
