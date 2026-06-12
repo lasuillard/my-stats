@@ -21,7 +21,7 @@
             git
             pre-commit
             grafana-alloy
-            (pkgs.callPackage ./packages/prom-write.nix { })
+            (pkgs.callPackage ./nixpkgs/prom-write.nix { })
           ];
           shellHook = ''
             pre-commit install
