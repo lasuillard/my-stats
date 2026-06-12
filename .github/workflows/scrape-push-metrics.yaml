@@ -72,4 +72,4 @@ jobs:
           name: metrics
           path: ./metrics
           if-no-files-found: warn
-          retention-days: 3
+          retention-days: 1
