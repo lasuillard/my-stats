@@ -35,7 +35,7 @@ This repository uses [Nix Flakes](https://nix.dev/concepts/flakes.html) to manag
 - [Grafana Alloy](https://grafana.com/docs/alloy/latest/) (`alloy`)
 - [theduke/prom-write](https://github.com/theduke/prom-write) (`prom-write`)
 
-If you prefer [Dev Container](https://containers.dev/), we have configuration ([devcontainer.json](./.devcontainer/devcontainer.json)) for it, with Nix installed!
+If you prefer [Dev Container](https://containers.dev/), we have configuration ([devcontainer.json](./.devcontainer.example/devcontainer.json)) for it, with Nix installed!
 
 ### 🧪 Set up and testing
 
