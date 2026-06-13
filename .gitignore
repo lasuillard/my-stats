@@ -1,7 +1,11 @@
 *.log
 
-# Created by https://www.toptal.com/developers/gitignore/api/git,linux,macos,windows,visualstudiocode,dotenv
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,linux,macos,windows,visualstudiocode,dotenv
+# Created by https://www.toptal.com/developers/gitignore/api/git,linux,macos,dotenv,windows,visualstudiocode,direnv
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,linux,macos,dotenv,windows,visualstudiocode,direnv
+
+### direnv ###
+.direnv
+.envrc
 
 ### dotenv ###
 .env
@@ -114,4 +118,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/git,linux,macos,windows,visualstudiocode,dotenv
+# End of https://www.toptal.com/developers/gitignore/api/git,linux,macos,dotenv,windows,visualstudiocode,direnv
