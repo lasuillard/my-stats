@@ -44,7 +44,7 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir --parents "''${out}/bin"
+    mkdir -p "''${out}/bin"
     cp ''${src} "''${out}/bin/prom-write"
     chmod +x "''${out}/bin/prom-write"
 
