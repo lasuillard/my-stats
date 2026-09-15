@@ -21,23 +21,16 @@ The workflow is simple:
 
 To use this repository for your own experiment, you need:
 
-### 🐳 System requirements
+- Docker (`docker`) and Docker Compose (`docker compose`)
+- Nix (`nix`)
 
-The following tools must be installed on your system:
-
-- Docker and Docker Compose
-
-### ❄️ Tools managed via Nix Flakes
-
-This repository uses [Nix Flakes](https://nix.dev/concepts/flakes.html) to manage tools. The following tools will be automatically installed (you must have `nix` installed):
+The following tools will be automatically installed (you must have `nix` installed):
 
 - `pre-commit`
 - [Grafana Alloy](https://grafana.com/docs/alloy/latest/) (`alloy`)
 - [theduke/prom-write](https://github.com/theduke/prom-write) (`prom-write`)
 
-Run `nix develop` to activate the environment. This will automatically install the above tools.
-
-If you prefer [Dev Container](https://containers.dev/), there is configuration available in [./.devcontainer.example/devcontainer.json](./.devcontainer.example/devcontainer.json) with Nix installed.
+Run `nix develop` to activate the environment. This will automatically install the above tools. If you prefer [Dev Container](https://containers.dev/), there is configuration available in [./.devcontainer.example/devcontainer.json](./.devcontainer.example/devcontainer.json) with Nix installed.
 
 ### 🧪 Set up and testing
 
