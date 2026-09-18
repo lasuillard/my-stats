@@ -1,7 +1,5 @@
 # my-stats
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 An experiment collecting a small amount of personal metrics via GitHub Actions.
 
 This repository demonstrates how to scrape and send a small amount of metrics on demand from GitHub Actions to a remote metrics store using [Grafana Alloy](https://grafana.com/docs/alloy/latest/) and [theduke/prom-write](https://github.com/theduke/prom-write).
@@ -37,7 +35,3 @@ Run `nix develop` to activate the environment. This will automatically install t
 1. Copy `.env.example` to `.env` and update it with your own values.
 2. Run `docker compose up --detach` to start the environment.
 3. Run `nix develop` to install the required tools.
-
-## 📜 License
-
-This project is licensed under the MIT License.
